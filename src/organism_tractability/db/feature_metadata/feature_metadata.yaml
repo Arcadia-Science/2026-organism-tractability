@@ -1,0 +1,381 @@
+features:
+  - feature_id: protocols_io
+    source_id: protocols_io
+    display_name: Protocols.io
+    category: Community
+    description: |
+      Number of publicly available protocols for the organism on protocols.io. The web search 
+      interface may return more results than recorded here due to the broader matching OR logic on 
+      organism names. For results > 10, only the top 10 will be displayed.
+    type: INTEGER
+  - feature_id: pubmed
+    source_id: ncbi
+    display_name: PubMed
+    category: Community
+    organism_query_type: scientific_name
+    description: |
+      Database of citations and abstracts for biomedical literature from MEDLINE, 
+      life science journals, and online books. Query generated using organism scientific name.
+    type: INTEGER
+  - feature_id: pmc
+    source_id: ncbi
+    display_name: PubMed Central
+    category: Community
+    organism_query_type: scientific_name
+    description: |
+      Free full-text archive of biomedical and life sciences journal literature. 
+      Query generated using organism scientific name.
+    type: INTEGER
+  - feature_id: books
+    source_id: ncbi
+    display_name: Bookshelf
+    category: Community
+    organism_query_type: scientific_name
+    description: |
+      Collection of biomedical books, reports, databases, and other literature. 
+      Query generated using organism scientific name.
+    type: INTEGER
+  - feature_id: mesh
+    source_id: ncbi
+    display_name: MeSH
+    category: Community
+    organism_query_type: scientific_name
+    description: |
+      Medical Subject Headings - controlled vocabulary for indexing articles. 
+      Query generated using organism scientific name.
+    type: INTEGER
+  - feature_id: nlmcatalog
+    source_id: ncbi
+    display_name: NLM Catalog
+    category: Community
+    organism_query_type: scientific_name
+    description: |
+      Catalog of books, audiovisuals, computer software, electronic resources 
+      and other materials. Query generated using organism scientific name.
+    type: INTEGER
+  - feature_id: gene
+    source_id: ncbi
+    display_name: Gene
+    category: Tooling
+    organism_query_type: taxonomy_id
+    description: |
+      Gene-centered information including nomenclature, genomic context, pathways, 
+      and phenotypes. Query generated using organism taxonomy ID.
+    type: INTEGER
+  - feature_id: gds
+    source_id: ncbi
+    display_name: GEO DataSets
+    category: Tooling
+    organism_query_type: taxonomy_id
+    description: |
+      Gene Expression Omnibus - repository for microarray and other forms of 
+      high-throughput genomic data. Query generated using organism taxonomy ID.
+    type: INTEGER
+  - feature_id: geoprofiles
+    source_id: ncbi
+    display_name: GEO Profiles
+    category: Tooling
+    organism_query_type: taxonomy_id
+    description: |
+      Gene expression profiles from GEO DataSets with analysis tools. 
+      Query generated using organism taxonomy ID.
+    type: INTEGER
+  - feature_id: protein
+    source_id: ncbi
+    display_name: Protein
+    category: Tooling
+    organism_query_type: taxonomy_id
+    description: |
+      Protein sequence database with annotations, structures, and functional 
+      information. Query generated using organism taxonomy ID.
+    type: INTEGER
+  - feature_id: ipg
+    source_id: ncbi
+    display_name: Identical Protein Groups
+    category: Tooling
+    organism_query_type: taxonomy_id
+    description: |
+      Groups of identical protein sequences from different sources. 
+      Query generated using organism taxonomy ID.
+    type: INTEGER
+  - feature_id: cdd
+    source_id: ncbi
+    display_name: Conserved Domains
+    category: Tooling
+    organism_query_type: taxonomy_id
+    description: |
+      Database of protein domain families and functional sites. 
+      Query generated using organism taxonomy ID.
+    type: INTEGER
+  - feature_id: protfam
+    source_id: ncbi
+    display_name: Protein Family Models
+    category: Tooling
+    organism_query_type: taxonomy_id
+    description: |
+      Protein family models and conserved domain architectures. 
+      Query generated using organism taxonomy ID.
+    type: INTEGER
+  - feature_id: structure
+    source_id: ncbi
+    display_name: Structure
+    category: Tooling
+    organism_query_type: taxonomy_id
+    description: |
+      3D macromolecular structures from X-ray crystallography, NMR spectroscopy, 
+      and cryo-EM. Query generated using organism taxonomy ID.
+    type: INTEGER
+  - feature_id: nuccore
+    source_id: ncbi
+    display_name: Nucleotide
+    category: Tooling
+    organism_query_type: taxonomy_id
+    description: |
+      DNA and RNA sequences from GenBank, RefSeq, and other sources. 
+      Query generated using organism taxonomy ID.
+    type: INTEGER
+  - feature_id: sra
+    source_id: ncbi
+    display_name: SRA
+    category: Tooling
+    organism_query_type: taxonomy_id
+    description: |
+      Sequence Read Archive - raw sequencing data and alignment information. 
+      Query generated using organism taxonomy ID.
+    type: INTEGER
+  - feature_id: bioproject
+    source_id: ncbi
+    display_name: BioProject
+    category: Tooling
+    organism_query_type: taxonomy_id
+    description: |
+      Organized collection of biological data from a single initiative. 
+      Query generated using organism taxonomy ID.
+    type: INTEGER
+  - feature_id: biosample
+    source_id: ncbi
+    display_name: BioSample
+    category: Tooling
+    organism_query_type: taxonomy_id
+    description: |
+      Descriptions of biological source materials used in experimental assays. 
+      Query generated using organism taxonomy ID.
+    type: INTEGER
+  - feature_id: biocollections
+    source_id: ncbi
+    display_name: BioCollections
+    category: Tooling
+    organism_query_type: taxonomy_id
+    description: |
+      Information about biological collections and their specimens. 
+      Query generated using organism taxonomy ID.
+    type: INTEGER
+  - feature_id: nih_reporter
+    source_id: nih_reporter
+    display_name: NIH RePORTER
+    category: Community
+    description: |
+      NIH-funded research projects related to the organism, including project titles, 
+      award amounts, principal investigators, organizations, and fiscal years. Only the first 10 
+      results are returned.
+    type: INTEGER
+  - feature_id: atcc
+    source_id: atcc
+    display_name: ATCC
+    category: Logistics
+    description: |
+      ATCC search results and product details for the organism. 
+    max_products: 0
+    type: INTEGER
+  - feature_id: requires_host
+    source_id: exa_answer
+    display_name: Requires Host
+    category: Logistics
+    description: Whether the organism requires a host organism for growth.
+    query: "Does {organism} require a host organism?"
+    answer_enum: ["yes", "maybe", "no", "unknown"]
+    type: TEXT
+  - feature_id: requires_bacterial_food
+    source_id: exa_answer
+    display_name: Requires Bacterial Food
+    category: Logistics
+    description: Whether the organism requires a bacterial food source.
+    query: "Does {organism} require a bacterial food source?"
+    answer_enum: ["yes", "maybe", "no", "unknown"]
+    type: TEXT
+  - feature_id: bsl_level
+    source_id: exa_answer
+    display_name: Biosafety Level
+    category: Logistics
+    description: The biosafety level (BSL) required for working with the organism.
+    query: "What biosafety level (BSL) is required for {organism}?"
+    answer_enum: ["BSL-1", "BSL-2", "BSL-3", "BSL-4", "unknown"]
+    type: TEXT
+  - feature_id: requires_lab_permits
+    source_id: exa_answer
+    display_name: Requires Lab Permits
+    category: Logistics
+    description: Whether the organism requires special laboratory permits or regulatory approvals.
+    query: "Does {organism} require special laboratory permits or regulatory approvals?"
+    answer_enum: ["yes", "maybe", "no", "unknown"]
+    type: TEXT
+  - feature_id: culture_conditions
+    source_id: exa_answer
+    display_name: Culture Conditions
+    category: Logistics
+    description: Culture growth conditions including temperature, pH, media composition, oxygen requirements, and other environmental factors.
+    query: "What are the culture growth conditions for {organism}? Include temperature, pH, media composition, oxygen requirements, and other environmental factors."
+    type: TEXT
+  - feature_id: bsl_infrastructure_requirements
+    source_id: exa_answer
+    display_name: BSL Infrastructure Requirements
+    category: Logistics
+    description: Infrastructure required to work with organisms at the biosafety level, including standard BSL-appropriate equipment such as autoclaves, sterile culturing equipment, refrigerators, freezers, waste disposal systems, and containment facilities.
+    query: "What infrastructure is required to work with organisms at the biosafety level (BSL) of {organism}? Include standard BSL-appropriate equipment such as autoclaves, sterile culturing equipment, refrigerators, freezers, waste disposal systems, and containment facilities."
+    type: TEXT
+  - feature_id: organism_infrastructure_requirements
+    source_id: exa_answer
+    display_name: Organism Infrastructure Requirements
+    category: Logistics
+    description: Organism-specific infrastructure and equipment required to culture the organism, including specialized tools such as culture vessels, growth lights, microinjection equipment, microscopes, and other organism-specific instruments.
+    query: "What organism-specific infrastructure and equipment are required to culture {organism}? Include specialized tools such as culture vessels (plates, flasks, tubes), growth lights (for photosynthetic organisms), microinjection equipment, microscopes (dissecting scopes, light microscopes), and other organism-specific instruments."
+    type: TEXT
+  - feature_id: 96_well_plate_capable
+    source_id: exa_answer
+    display_name: 96-Well Plate Capable
+    category: Throughput
+    description: Whether the organism can be cultured in a 96-well plate format.
+    query: "Can you culture {organism} in a 96-well plate?"
+    answer_enum: ["yes", "maybe", "no", "unknown"]
+    type: TEXT
+  - feature_id: size
+    source_id: exa_answer
+    display_name: Size
+    category: Throughput
+    description: The size of the organism including value, dimensions, and unit.
+    query: "How large is {organism}? Provide the size value, dimensions, and unit."
+    type: TEXT
+  - feature_id: cellularity
+    source_id: exa_answer
+    display_name: Cellularity
+    category: Throughput
+    description: Whether the organism is unicellular or multicellular.
+    query: "What is the cellularity of {organism}?"
+    answer_enum: ["unicellular", "multicellular", "unknown"]
+    type: TEXT
+  - feature_id: doubling_time
+    source_id: exa_answer
+    display_name: Doubling Time
+    category: Throughput
+    description: The doubling time of the organism including value and units.
+    query: "What is the doubling time of {organism}? Provide the value and units (e.g., '2.5 hours', '3 days')."
+    type: TEXT
+  - feature_id: time_to_adulthood
+    source_id: exa_answer
+    display_name: Time to Adulthood
+    category: Throughput
+    description: The time to adulthood or sexual maturity for the organism including value and units.
+    query: "What is the time to adulthood/sexual maturity for {organism}? Provide the value and units (e.g., '2 weeks', '6 months')."
+    type: TEXT
+  - feature_id: ploidy
+    source_id: exa_answer
+    display_name: Ploidy
+    category: Tooling
+    description: The ploidy level of the organism.
+    query: "What is the ploidy of {organism}?"
+    answer_enum: ["haploid", "diploid", "polyploid", "unknown"]
+    type: TEXT
+  - feature_id: genetic_manipulation_tools
+    source_id: exa_answer
+    display_name: Genetic Manipulation Tools
+    category: Tooling
+    description: Genetic manipulation tools that are standard practice for the organism, including gene editing techniques, transformation methods, selection markers, reporter systems, expression systems, and cloning tools.
+    query: "What genetic manipulation tools are standard practice for {organism}? Include gene editing techniques (CRISPR, TALENs, zinc fingers, homologous recombination), transformation methods, selection markers, reporter systems, expression systems, and cloning tools."
+    type: TEXT
+  - feature_id: genetic_manipulation_available
+    source_id: exa_answer
+    display_name: Genetic Manipulation Available
+    category: Tooling
+    description: Whether any genetic manipulation tools are standard practice for the organism.
+    query: "Are any genetic manipulation tools standard practice for {organism}? Consider gene editing techniques (CRISPR, TALENs, zinc fingers, homologous recombination), transformation methods, selection markers, reporter systems, expression systems, and cloning tools."
+    answer_enum: ["yes", "maybe", "no", "unknown"]
+    type: TEXT
+  - feature_id: crispr
+    source_id: exa_answer
+    display_name: CRISPR
+    category: Tooling
+    description: Whether CRISPR gene editing is standard practice for the organism.
+    query: "Is CRISPR gene editing standard practice for {organism}?"
+    answer_enum: ["yes", "maybe", "no", "unknown"]
+    type: TEXT
+  - feature_id: gfp
+    source_id: exa_answer
+    display_name: GFP
+    category: Tooling
+    description: Whether GFP (Green Fluorescent Protein) is commonly used as a reporter in the organism.
+    query: "Is GFP (Green Fluorescent Protein) commonly used as a reporter in {organism}?"
+    answer_enum: ["yes", "maybe", "no", "unknown"]
+    type: TEXT
+  - feature_id: rnai
+    source_id: exa_answer
+    display_name: RNAi
+    category: Tooling
+    description: Whether RNA interference (RNAi) is standard practice for the organism.
+    query: "Is RNA interference (RNAi) standard practice for {organism}?"
+    answer_enum: ["yes", "maybe", "no", "unknown"]
+    type: TEXT
+  - feature_id: transformation
+    source_id: exa_answer
+    display_name: Transformation
+    category: Tooling
+    description: Whether transformation methods are standard practice for the organism.
+    query: "Are transformation methods, including commonly used electroporation, chemical transformation, and other methods, standard practice for {organism}?"
+    answer_enum: ["yes", "maybe", "no", "unknown"]
+    type: TEXT
+  - feature_id: transposon
+    source_id: exa_answer
+    display_name: Transposon
+    category: Tooling
+    description: Whether transposon systems are standard practice for the organism.
+    query: "Are transposon systems, including commonly used insertion mutagenesis and transposon-based tools, standard practice for {organism}?"
+    answer_enum: ["yes", "maybe", "no", "unknown"]
+    type: TEXT
+  - feature_id: vector
+    source_id: exa_answer
+    display_name: Vector Systems
+    category: Tooling
+    description: Whether vector systems are standard practice for the organism.
+    query: "Are vector systems, including commonly used expression vectors, shuttle vectors, cloning vectors, plasmids, and specialized delivery systems, standard practice for {organism}?"
+    answer_enum: ["yes", "maybe", "no", "unknown"]
+    type: TEXT
+  - feature_id: mutagenesis
+    source_id: exa_answer
+    display_name: Mutagenesis
+    category: Tooling
+    description: Whether mutagenesis techniques are standard practice for the organism.
+    query: "Are mutagenesis techniques standard practice for {organism}?"
+    answer_enum: ["yes", "maybe", "no", "unknown"]
+    type: TEXT
+  - feature_id: mutant_library
+    source_id: exa_answer
+    display_name: Mutant Library
+    category: Tooling
+    description: Whether mutant libraries are commonly used for the organism.
+    query: "Are mutant libraries commonly used for {organism}?"
+    answer_enum: ["yes", "maybe", "no", "unknown"]
+    type: TEXT
+  - feature_id: imaging
+    source_id: exa_answer
+    display_name: Imaging Techniques
+    category: Tooling
+    description: Imaging techniques that are standard practice for the organism, including microscopy methods, fluorescent markers, and visualization approaches.
+    query: "What imaging techniques are standard practice for {organism}? Include microscopy methods, fluorescent markers, and visualization approaches."
+    type: TEXT
+  - feature_id: phenotype_screening
+    source_id: exa_answer
+    display_name: Phenotype Screening
+    category: Tooling
+    description: Whether phenotype screening and analysis methods are standard practice for the organism.
+    query: "Is phenotype screening and analysis methods standard practice for {organism}?"
+    answer_enum: ["yes", "maybe", "no", "unknown"]
+    type: TEXT
