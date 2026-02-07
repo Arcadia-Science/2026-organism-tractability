@@ -101,7 +101,8 @@ class FeaturesPipeline:
                     oid = int(oid_raw)
                 except ValueError as e:
                     raise ValueError(
-                        f"Input CSV row {i} organism_id must be an integer taxonomy id, got: {oid_raw}"
+                        f"Input CSV row {i} organism_id must be an integer taxonomy id, got: "
+                        "{oid_raw}"
                     ) from e
 
                 organisms.append({"organism_scientific_name": name, "organism_id": oid})
