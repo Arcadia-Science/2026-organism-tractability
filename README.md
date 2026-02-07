@@ -2,10 +2,10 @@
 
 This repository is an **archived** code snapshot accompanying the paper **“A tractability atlas for experimental organism selection”**.
 
-- **Paper**: `https://thestacks.org/publications/resource-tractability-atlas`
-- **Raw dataset (Zenodo)**: `https://doi.org/10.5281/zenodo.18491198` ([Zenodo record](https://doi.org/10.5281/zenodo.18491198))
-- **Interface (searchable table)**: `https://organism-tractability-data.arcadiascience.com`
-- **Visual map**: `https://organism-tractability.arcadiascience.com`
+- **Paper**: [The Stacks publication page](https://thestacks.org/publications/resource-tractability-atlas)
+- **Raw dataset (Zenodo)**: [Zenodo dataset DOI](https://doi.org/10.5281/zenodo.18491198)
+- **Interface (searchable table)**: [organism-tractability-data.arcadiascience.com](https://organism-tractability-data.arcadiascience.com)
+- **Visual map**: [organism-tractability.arcadiascience.com](https://organism-tractability.arcadiascience.com)
 
 We plan to refresh the **data** periodically; this **code repo** is not intended to be updated.
 
@@ -51,17 +51,17 @@ Example input file:
 ## Run: fetch all features for all organisms
 
 ```sh
-python -m organism_tractability.db.cli get-features \\
-  --input input/example_organisms.csv \\
+python -m organism_tractability.db.cli get-features \
+  --input input/example_organisms.csv \
   --output output/features.csv
 ```
 
 You can optionally restrict sources:
 
 ```sh
-python -m organism_tractability.db.cli get-features \\
-  --input input/example_organisms.csv \\
-  --output output/features.csv \\
+python -m organism_tractability.db.cli get-features \
+  --input input/example_organisms.csv \
+  --output output/features.csv \
   -s ncbi -s protocols_io
 ```
 
