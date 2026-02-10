@@ -1,0 +1,39 @@
+cff-version: 1.2.0
+message: If you use this software, please cite the associated publication.
+title: A tractability atlas for experimental organism selection
+doi: 10.57844/arcadia-h2nn-w619
+authors:
+- family-names: Avasthi
+  given-names: Prachee
+  affiliation: Arcadia Science
+  orcid: https://orcid.org/0000-0002-1688-722X
+- family-names: Bell
+  given-names: Audrey
+  affiliation: Arcadia Science
+  orcid: https://orcid.org/0009-0008-2270-1613
+- family-names: Cheveralls
+  given-names: Keith
+  affiliation: Arcadia Science
+  orcid: https://orcid.org/0000-0002-4157-6087
+- family-names: Chou
+  given-names: Seemay
+  affiliation: Arcadia Science
+  orcid: https://orcid.org/0000-0002-7271-303X
+- family-names: Hosny
+  given-names: Ahmed
+  affiliation: Arcadia Science
+  orcid: https://orcid.org/0000-0002-1844-481X
+preferred-citation:
+  title: A tractability atlas for experimental organism selection
+  type: article
+  doi: 10.57844/arcadia-h2nn-w619
+  authors:
+  - family-names: Chou
+    given-names: Seemay
+    affiliation: Arcadia Science
+    orcid: https://orcid.org/0000-0002-7271-303X
+  - family-names: Hosny
+    given-names: Ahmed
+    affiliation: Arcadia Science
+    orcid: https://orcid.org/0000-0002-1844-481X
+  year: 2026
