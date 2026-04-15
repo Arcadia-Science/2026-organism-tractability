@@ -2,7 +2,14 @@ from organism_tractability.db.feature_metadata import FeatureMetadata
 
 from .client import NCBIClient, NCBISearchResult
 
-_client = NCBIClient()
+_client: NCBIClient | None = None
+
+
+def _get_client() -> NCBIClient:
+    global _client
+    if _client is None:
+        _client = NCBIClient()
+    return _client
 
 
 def get_ncbi(
@@ -18,7 +25,7 @@ def get_ncbi(
     Returns:
         NCBISearchResult with search URL and count.
     """
-    return _client.comprehensive_ncbi_search(
+    return _get_client().comprehensive_ncbi_search(
         organism_scientific_name=organism_scientific_name,
         organism_id=organism_id,
         feature_metadata=feature_metadata,

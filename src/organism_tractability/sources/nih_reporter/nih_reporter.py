@@ -2,7 +2,14 @@ from organism_tractability.db.feature_metadata import FeatureMetadata
 
 from .client import NIHReporterClient, SearchResponse
 
-_client = NIHReporterClient()
+_client: NIHReporterClient | None = None
+
+
+def _get_client() -> NIHReporterClient:
+    global _client
+    if _client is None:
+        _client = NIHReporterClient()
+    return _client
 
 
 def search_nih_reporter_projects(organism_scientific_name: str) -> SearchResponse:
@@ -15,7 +22,7 @@ def search_nih_reporter_projects(organism_scientific_name: str) -> SearchRespons
     Returns:
         SearchResponse with typed project data
     """
-    response = _client.search_projects(query=organism_scientific_name)
+    response = _get_client().search_projects(query=organism_scientific_name)
     return response
 
 

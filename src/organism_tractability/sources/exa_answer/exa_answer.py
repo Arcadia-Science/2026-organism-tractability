@@ -1,7 +1,14 @@
 from organism_tractability.db.feature_metadata import FeatureMetadata
 from organism_tractability.sources.exa_answer.client import ExaAnswer, ExaAnswerClient
 
-_client = ExaAnswerClient()
+_client: ExaAnswerClient | None = None
+
+
+def _get_client() -> ExaAnswerClient:
+    global _client
+    if _client is None:
+        _client = ExaAnswerClient()
+    return _client
 
 
 def answer_organism_query(
@@ -17,7 +24,7 @@ def answer_organism_query(
     Returns:
         ExaAnswer object containing organism web search results
     """
-    return _client.answer_organism_query(
+    return _get_client().answer_organism_query(
         organism_scientific_name=organism_scientific_name,
         feature_metadata=feature_metadata,
     )

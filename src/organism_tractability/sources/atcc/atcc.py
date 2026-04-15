@@ -4,9 +4,14 @@ from organism_tractability.db.feature_metadata import FeatureMetadata
 
 from .client import ATCCClient, AtccProductDetail, AtccSearchResults
 
-# Module-level client instance - reused across all calls for efficiency
-# The client is stateless (only stores config), so sharing is safe
-_client = ATCCClient()
+_client: ATCCClient | None = None
+
+
+def _get_client() -> ATCCClient:
+    global _client
+    if _client is None:
+        _client = ATCCClient()
+    return _client
 
 
 class AtccSearchAndProductResults(BaseModel):
@@ -36,7 +41,8 @@ def search_and_get_atcc_products(
         AtccSearchAndProductResults with search_results and product_details.
     """
     # First, search for products
-    search_results = _client.search_products(query=organism_scientific_name)
+    client = _get_client()
+    search_results = client.search_products(query=organism_scientific_name)
     product_details: list[AtccProductDetail] = []
 
     if search_results:
@@ -45,7 +51,7 @@ def search_and_get_atcc_products(
         if products and max_products > 0:
             for product in products[:max_products]:
                 if product and product.url:
-                    product_detail = _client.get_product(product.url)
+                    product_detail = client.get_product(product.url)
                     if product_detail:
                         product_details.append(product_detail)
 
