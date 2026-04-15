@@ -4,7 +4,14 @@ from organism_tractability.db.feature_metadata import FeatureMetadata
 
 from .client import ProtocolSearchResults, ProtocolsIOClient
 
-_client = ProtocolsIOClient()
+_client: ProtocolsIOClient | None = None
+
+
+def _get_client() -> ProtocolsIOClient:
+    global _client
+    if _client is None:
+        _client = ProtocolsIOClient()
+    return _client
 
 
 def search_public_protocols(
@@ -33,7 +40,7 @@ def search_public_protocols(
         requests.RequestException: If API request fails
         ValueError: If PROTOCOLS_IO_API_CLIENT_ACCESS_TOKEN is not set
     """
-    return _client.search_protocols(
+    return _get_client().search_protocols(
         key=organism_scientific_name,
         page_size=page_size,
         page_id=page_id,
